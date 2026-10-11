@@ -81,10 +81,12 @@
         "which": "^3.0.1"
     },
     "overrides": {
-        "typescript@*": "$typescript"
+        "typescript@*": "$typescript",
+        "flatted": "3.4.4"
     },
     "scripts": {
-        "test": "hereby runtests-parallel --light=false",
+        "test": "npm run test:security && hereby runtests-parallel --light=false",
+        "test:security": "node scripts/security/flatted.test.cjs",
         "test:eslint-rules": "hereby run-eslint-rules-tests",
         "build": "npm run build:compiler && npm run build:tests",
         "build:compiler": "hereby local",
